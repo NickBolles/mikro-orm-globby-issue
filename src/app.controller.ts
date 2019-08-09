@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Inject } from '@nestjs/common';
 import { UserService } from './User/user.service';
 import { RecipeService } from './Recipe/recipe.service';
 import { Recipe } from './Recipe/entities/Recipe';
@@ -6,11 +6,17 @@ import { Recipe } from './Recipe/entities/Recipe';
 @Controller()
 export class AppController {
   constructor(
+    @Inject(UserService)
     private readonly userService: UserService, 
+    @Inject(RecipeService)
     private readonly recipeService: RecipeService) {}
 
   @Get()
-  async getHello(): Promise<Recipe> {
+  getHello() {
+    return "Hello World";
+  }
+  @Get("test")
+  async getTest(): Promise<Recipe> {
     const user = await this.userService.findOrCreate({
       name: "Nick",
       username: "NickBolles"
