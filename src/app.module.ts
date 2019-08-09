@@ -8,9 +8,9 @@ import { RecipeModule } from './Recipe/recipe.module';
 @Module({
   imports: [
     MikroOrmModule.forRoot({
-      entitiesDirs: ["./**/entities"],
-      entitiesDirsTs: ["./**/entities"],
-      baseDir: __dirname,
+      entitiesDirs: ["./src/**/entities"],
+      entitiesDirsTs: ["./dist/**/entities"],
+      // baseDir: __dirname,
       // dbName: 'my-db-name.sqlite3',
       // type: 'sqlite',
       dbName: "mikro-orm-test",
