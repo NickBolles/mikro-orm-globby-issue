@@ -9,13 +9,13 @@ export class Recipe {
     @Property()
     name: string;
 
-    @Property({default: () => `Created at ${this.createdAt}`})
+    @Property()
     description: string;
 
     @ManyToOne()
     author: User;
 
-    @Property({default: () => new Date()})
+    @Property()
     createdAt: Date = new Date()
 
     @Property({onUpdate: () => new Date()})

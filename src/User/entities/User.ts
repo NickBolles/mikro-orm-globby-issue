@@ -12,7 +12,7 @@ export class User {
     @Property()
     username: string;
 
-    @Property({default: () => new Date()})
+    @Property()
     createdAt: Date = new Date()
 
     @Property({onUpdate: () => new Date()})
